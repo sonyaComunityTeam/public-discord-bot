@@ -1,2 +1,2 @@
-# pubric-discord-bot
+# public-discord-bot
 sonyacommunity bot
