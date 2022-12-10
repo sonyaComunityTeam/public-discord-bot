@@ -3,6 +3,7 @@ import load_env
 import aiohttp
 import pyshortners
 import asyncio
+import pyshorteners
 
 bot = discord.Client(intents=discord.Intents.all())
 
@@ -25,6 +26,7 @@ async def expandurl(
             expand = session.get(link).url
             await ctx.respond(f"URLを展開しました。:{expand}")
     elif typ == "短縮":
-            await ctx.respond(f"URLを短縮しました。:{tyny}")
+            s = pyshorteners.Shortener()
+            await ctx.respond(f"URLを短縮しました。:{s.tinyurl.short(link)}")
 
 bot.run(load_env.DISCORD_TOKEN)
